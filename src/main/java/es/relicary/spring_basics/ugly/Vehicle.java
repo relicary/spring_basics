@@ -1,5 +1,9 @@
 package es.relicary.spring_basics.ugly;
 
+import es.relicary.spring_basics.ugly.factories.SpeakerFactory;
+import es.relicary.spring_basics.ugly.factories.TyreFactory;
+import es.relicary.spring_basics.ugly.speakers.SonySpeakers;
+import es.relicary.spring_basics.ugly.tyres.MichelinTyres;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2

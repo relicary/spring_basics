@@ -1,7 +1,7 @@
 package es.relicary.spring_basics.ugly;
 
-public class Speakers {
-    public String makeSound() {
-        return "Dance Default!";
-    }
+public interface Speakers {
+
+    String makeSound();
+
 }
