@@ -3,6 +3,7 @@ package es.relicary.spring_basics.config;
 import es.relicary.spring_basics.beans.Vehicle;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ProjectConfig {
@@ -23,6 +24,7 @@ public class ProjectConfig {
         return vehicle;
     }
 
+    @Primary
     @Bean(name = "ferrariVehicle")
     Vehicle ferrari() {
         var vehicle = new Vehicle();
