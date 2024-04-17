@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProjectConfig {
 
-    @Bean
+    @Bean(name = "audiVehicle")
     Vehicle audi() {
         var vehicle = new Vehicle();
         vehicle.setName("Audi");
@@ -15,7 +15,7 @@ public class ProjectConfig {
         return vehicle;
     }
 
-    @Bean
+    @Bean(name = "hondaVehicle")
     Vehicle honda() {
         var vehicle = new Vehicle();
         vehicle.setName("Honda");
@@ -23,7 +23,7 @@ public class ProjectConfig {
         return vehicle;
     }
 
-    @Bean
+    @Bean(name = "ferrariVehicle")
     Vehicle ferrari() {
         var vehicle = new Vehicle();
         vehicle.setName("Ferrari");
