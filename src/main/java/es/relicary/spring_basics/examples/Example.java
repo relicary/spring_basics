@@ -14,6 +14,7 @@ public class Example {
 
         Vehicle veh = context.getBean(Vehicle.class);
         log.info("Vehicle name from Spring context is: {}", veh.getName());
+        veh.printHello();
 
     }
 }
