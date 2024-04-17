@@ -16,5 +16,7 @@ public class Example {
         log.info("Vehicle name from Spring context is: {}", veh.getName());
         veh.printHello();
 
+        context.close();
+
     }
 }
