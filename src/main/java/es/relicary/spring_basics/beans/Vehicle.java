@@ -1,36 +1,24 @@
 package es.relicary.spring_basics.beans;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import lombok.AllArgsConstructor;
+import es.relicary.spring_basics.services.VehicleService;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("vehicleToyotaBean")
 @Getter
 @Setter
 @Log4j2
-@AllArgsConstructor
-@NoArgsConstructor
+@ToString
 public class Vehicle {
 
-    private String name;
+    private String name = "Toyota";
+    private final VehicleService vehicleService;
 
-    public void printHello() {
-        log.info("Printing Hello from Component Vehicle Bean");
-    }
-
-    @PostConstruct
-    public void initialize() {
-        // this.name = "Honda";
-    }
-
-    @PreDestroy
-    public void destroy() {
-        log.info("Destroying Vehicle Bean");
+    public Vehicle(VehicleService vehicleService) {
+        this.vehicleService = vehicleService;
     }
 
 }

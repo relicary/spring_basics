@@ -1,13 +1,12 @@
 package es.relicary.spring_basics.examples;
 
+import es.relicary.spring_basics.beans.Person;
 import es.relicary.spring_basics.beans.Vehicle;
 import es.relicary.spring_basics.config.ProjectConfig;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.Random;
-import java.util.function.Supplier;
+import java.util.Arrays;
 
 @Log4j2
 public class Example {
@@ -16,43 +15,23 @@ public class Example {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Vehicle volkswagen = new Vehicle("Volkswagen");
-        Supplier<Vehicle> volkswagenSupplier = () -> volkswagen;
+        String[] persons = context.getBeanNamesForType(Person.class);
+        log.info("Amount of Person beans: {}", persons.length);
+        Arrays.stream(persons).forEach(log::info);
 
-        Supplier<Vehicle> audiSupplier = () -> new Vehicle("Audi");
+        Person person = context.getBean(Person.class);
 
-        Random random = new Random();
-        int randomNumber = random.nextInt(10);
-        log.info("randomNumber = {}", randomNumber);
+        person.getVehicle().getVehicleService().playMusic();
+        person.getVehicle().getVehicleService().moveVehicle();
 
-        if((randomNumber% 2) == 0) {
-            context.registerBean("volkswagen", Vehicle.class, volkswagenSupplier);
-        }
-        else {
-            context.registerBean("audi", Vehicle.class, audiSupplier);
-        }
+        String[] vehicles = context.getBeanNamesForType(Vehicle.class);
+        log.info("Amount of Vehicle beans: {}", vehicles.length);
+        Arrays.stream(vehicles).forEach(log::info);
 
-        Vehicle volksVehicle = null;
-        Vehicle audiVehicle = null;
+        Vehicle vehicle = context.getBean(Vehicle.class);
 
-        try {
-            volksVehicle = context.getBean("volkswagen", Vehicle.class);
-        } catch (NoSuchBeanDefinitionException ex) {
-            log.error("Error while creating Volkswagen vehicle");
-        }
-
-        try {
-            audiVehicle = context.getBean("audi",Vehicle.class);
-        }catch (NoSuchBeanDefinitionException ex){
-            log.error("Error while creating Audi vehicle");
-        }
-
-        if(null != volksVehicle){
-            log.info("Programming Vehicle name from Spring Context is: {}", volksVehicle.getName());
-        }
-        else {
-            log.info("Programming Vehicle name from Spring Context is: {}", audiVehicle.getName());
-        }
+        vehicle.getVehicleService().playMusic();
+        vehicle.getVehicleService().moveVehicle();
 
     }
 }
