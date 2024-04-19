@@ -9,18 +9,14 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Log4j2
-public class Vehicle {
+public class Person {
 
     private String name;
+    private Vehicle vehicle;
 
-    public Vehicle(String name) {
+    public Person(String name, Vehicle vehicle) {
         this.name = name;
-        log.info("Vehicle bean created by Spring: {}", this.name);
+        this.vehicle = vehicle;
+        log.info("Person bean created by Spring: {}", this.name);
     }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
-
 }
