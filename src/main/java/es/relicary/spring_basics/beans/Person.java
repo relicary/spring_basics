@@ -16,9 +16,9 @@ public class Person {
     private final Vehicle vehicle;
 
     @Autowired
-    public Person(Vehicle vehicle) {
+    public Person(Vehicle vehicle1) {
         this.name = "Lucy";
-        this.vehicle = vehicle;
+        this.vehicle = vehicle1;
         log.info("Person bean created by Spring with Vehicle");
     }
 

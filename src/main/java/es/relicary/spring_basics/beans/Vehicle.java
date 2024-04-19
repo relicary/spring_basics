@@ -17,7 +17,7 @@ public class Vehicle {
 
     public Vehicle() {
         this.name = "Toyota";
-        log.info("Vehicle bean created by Spring");
+        log.info("Vehicle bean created by Spring with default name: {}", this.name);
     }
 
     public Vehicle(String name) {
