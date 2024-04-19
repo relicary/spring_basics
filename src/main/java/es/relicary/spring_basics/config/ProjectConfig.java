@@ -13,7 +13,7 @@ public class ProjectConfig {
     }
 
     @Bean
-    public Person person() {
-        return new Person("Lucy", vehicle());
+    public Person person(Vehicle vehicle) {
+        return new Person("Lucy",vehicle);
     }
 }
