@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,7 +17,7 @@ public class Person {
     private final Vehicle vehicle;
 
     @Autowired
-    public Person(Vehicle vehicle) {
+    public Person(@Qualifier("vehicle2") Vehicle vehicle) {
         this.name = "Lucy";
         this.vehicle = vehicle;
         log.info("Person bean created by Spring with Vehicle");
