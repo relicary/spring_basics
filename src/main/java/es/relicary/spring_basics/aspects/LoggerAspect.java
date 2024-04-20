@@ -17,17 +17,19 @@ import java.time.Instant;
 public class LoggerAspect {
 
     @Around("execution(* es.relicary.spring_basics.services.*.*(..))")
-    public void log(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
 
         log.info("{} method execution start", joinPoint.getSignature().toString());
 
         Instant start = Instant.now();
-        joinPoint.proceed();
+        Object result = joinPoint.proceed();
         Instant finish = Instant.now();
 
         long timeElapssed = Duration.between(start, finish).toMillis();
         log.info("Time took to execute the method: {}", timeElapssed);
 
         log.info("{} method execution end", joinPoint.getSignature().toString());
+
+        return result;
     }
 }
