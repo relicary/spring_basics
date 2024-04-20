@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(BeanDefinition.SCOPE_SINGLETON) // Optional because it's the default scope
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @Getter
 @Setter
 @Log4j2
