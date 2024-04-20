@@ -18,7 +18,7 @@ public class Example {
 
         Song song = new Song("Two's up", "Brian Johnson");
 
-        boolean vehicleStarted = false;
+        boolean vehicleStarted = true;
 
         String moveVehicleStatus = vehicleService.moveVehicle(vehicleStarted);
         String playMusicStatus = vehicleService.playMusic(vehicleStarted, song);
