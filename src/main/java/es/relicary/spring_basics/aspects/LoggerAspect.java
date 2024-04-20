@@ -36,6 +36,23 @@ public class LoggerAspect {
         return result;
     }
 
+    @Around("@annotation(es.relicary.spring_basics.interfaces.CustomAspect)")
+    public Object logWithAnnotation(ProceedingJoinPoint joinPoint) throws Throwable {
+
+        log.info("{} \n\tmethod execution start (*)", joinPoint.getSignature().toString());
+
+        Instant start = Instant.now();
+        Object result = joinPoint.proceed();
+        Instant finish = Instant.now();
+
+        long timeElapssed = Duration.between(start, finish).toMillis();
+        log.info("Time took to execute the method: {}", timeElapssed);
+
+        log.info("{} \n\tmethod execution end (*)", joinPoint.getSignature().toString());
+
+        return result;
+    }
+
     @AfterThrowing(value = "execution( * es.relicary.spring_basics.services.*.*(..))", throwing = "ex")
     public void logException(JoinPoint joinPoint, Exception ex) {
         log.error("{} \n\tAn exception thrown with the help of @AfterThrowing which happened due to: {}", joinPoint.getSignature().toString(), ex.getMessage());

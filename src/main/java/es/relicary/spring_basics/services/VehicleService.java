@@ -1,5 +1,6 @@
 package es.relicary.spring_basics.services;
 
+import es.relicary.spring_basics.interfaces.CustomAspect;
 import es.relicary.spring_basics.interfaces.Speakers;
 import es.relicary.spring_basics.interfaces.Tyres;
 import es.relicary.spring_basics.model.Song;
@@ -20,6 +21,7 @@ public class VehicleService {
     @Autowired
     private Tyres tyres;
 
+    @CustomAspect
     public String playMusic(boolean vehicleStarted, Song song) {
         return speakers.makeSound(song);
     }
