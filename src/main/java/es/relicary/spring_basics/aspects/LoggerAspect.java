@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -11,6 +12,7 @@ import java.time.Instant;
 
 @Aspect
 @Component
+@Order(2)
 @Log4j2
 public class LoggerAspect {
 

@@ -20,9 +20,9 @@ public class Example {
 
         boolean vehicleStarted = true;
 
-        String moveVehicleStatus = vehicleService.moveVehicle(vehicleStarted);
-        String playMusicStatus = vehicleService.playMusic(vehicleStarted, song);
-        String applyBrakeStatus = vehicleService.applyBreak(vehicleStarted);
+        log.info(vehicleService.moveVehicle(vehicleStarted));
+        log.info(vehicleService.playMusic(vehicleStarted, song));
+        log.info(vehicleService.applyBreak(vehicleStarted));
 
     }
 }
