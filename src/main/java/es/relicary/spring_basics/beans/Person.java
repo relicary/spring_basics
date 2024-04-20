@@ -2,6 +2,7 @@ package es.relicary.spring_basics.beans;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Log4j2
+@ToString
 public class Person {
 
     private String name = "Lucy";
