@@ -1,6 +1,7 @@
 package es.relicary.spring_basics.interfaces.impl;
 
 import es.relicary.spring_basics.interfaces.Speakers;
+import es.relicary.spring_basics.model.Song;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -8,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Primary
 public class SonySpeakers implements Speakers {
 
-    public String makeSound(){
-        return "Playing music with Sony speakers";
+    public String makeSound(Song song){
+        return "Playing the song " + song.getTitle() + " by " + song.getSingerName() + " with Sony Speakers";
     }
 
 }
